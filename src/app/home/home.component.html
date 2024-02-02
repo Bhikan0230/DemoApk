@@ -1,0 +1,74 @@
+<button class="btn btn-primary" (click)="open(content)">register</button>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+
+		<form #register="ngForm">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Upload Image</label>
+				<input type="file" #image="ngModel" name="img" (change)="uploadImg($event)" [(ngModel)]="user.ImageUrl"
+					class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Upload Image"
+					required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">First Name</label>
+				<input type="text" name="fname" [(ngModel)]="user.firstName" class="form-control"
+					id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="EnterFirst Name" required>
+			</div>
+			
+			<div class="form-group">
+				<label for="exampleInputPassword1">Last Name</label>
+				<input type="text" name="lname" class="form-control" [(ngModel)]="user.lastName"
+					id="exampleInputPassword1" placeholder="Enter Last Name" required>
+			</div>
+
+			<div class="form-group">
+				<label for="tagInput">Add Skills</label>
+				<input type="text" id="tagInput" name="tagInput" [(ngModel)]="newTag" />
+				<button type="button" (click)="addTag()">Add</button>
+			</div>
+			<div style="display: flex; background-color: azure;" *ngIf="tags.length > 0">
+				<h3 style="font-size: 15px;">Skills</h3>
+				<ul>
+					<li *ngFor="let tag of tags; let i = index">
+						{{ tag }}
+						<button type="button" (click)="removeTag(i)">Remove</button>
+					</li>
+				</ul>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">E-mail</label>
+				<input type="email" #mail="ngModel" name="mail" class="form-control"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="user.email"
+					id="exampleInputPassword1" placeholder="Enter E-mail" required>
+				<span *ngIf="mail.errors?.['pattern']" style="color: tomato;">Enter Valid e-mail</span>
+			</div>
+			<div class="form-group no-spinner-input">
+				<label for="exampleInputPassword1">Mobile No</label>
+				<input type="number" #mob="ngModel" name="mob" class="form-control" pattern="^((\\+91-?)|0)?[0-9]{10}$"
+					[(ngModel)]="user.mobile" id="exampleInputPassword1" placeholder="Enter Mobile Number" required>
+				<span *ngIf="mob.touched && mob.errors?.['pattern']"></span>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Age</label>
+				<input type="range" name="ages" (ngModelChange)="onchangeAge($event)" min="8" max="80"
+					[(ngModel)]="user.age" id="exampleInputPassword1" placeholder="Enter Age">
+				<label for=""> {{user.age}}</label>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Address</label>
+				<input type="text" name="addre " class="form-control" [(ngModel)]="user.address"
+					id="exampleInputPassword1" placeholder="Enter Address" required>
+			</div>
+		</form>
+
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" [disabled]="register.invalid"
+			(click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>

@@ -1,0 +1,25 @@
+<table>
+    <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Skills</td>
+            <td>Email</td>
+            <td>Mobile</td>
+            <td>Age</td>
+            <td>Address</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of userList">
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.newTag}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.mobile}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.address}}</td>
+            <td> <button  routerLink="/edit-user/{{item.id}}">Edit</button> </td>
+        </tr>
+    </tbody>
+</table>

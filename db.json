@@ -1,0 +1,33 @@
+{
+  "user": [
+    {
+      "id": "8943",
+      "firstName": "Vijay",
+      "lastName": "patiganesh@gmail.com",
+      "email": "vijay@gmail.com",
+      "mobile": 90989898989,
+      "age": 60,
+      "address": "Pune",
+      "ImageUrl": "C:\\fakepath\\Screenshot (1).png"
+    },
+    {
+      "id": "c110",
+      "firstName": "bhikan",
+      "lastName": "patil",
+      "email": "",
+      "mobile": 90989898989,
+      "age": 35,
+      "address": "hsbxjbss"
+    },
+    {
+      "id": "89f7",
+      "ImageUrl": "Screenshot (1).png",
+      "firstName": "Saurabh",
+      "lastName": "Meharkar",
+      "email": "ganesh@gmail.com",
+      "mobile": 9075585508,
+      "age": 23,
+      "address": "Pune, India"
+    }
+  ]
+}
